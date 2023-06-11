@@ -10,6 +10,7 @@ import torch
 from diffusers.configuration_utils import FrozenDict
 from diffusers.models import AutoencoderKL, UNet2DConditionModel
 from diffusers.pipeline_utils import DiffusionPipeline
+from diffusers import StableDiffusionImg2ImgPipeline
 from diffusers.pipelines.stable_diffusion import StableDiffusionPipelineOutput
 from diffusers.pipelines.stable_diffusion.safety_checker import (
     StableDiffusionSafetyChecker,
@@ -35,7 +36,7 @@ logging.set_verbosity_info()
 logger = logging.get_logger(__name__)
 
 
-class StableDiffusionWalkPipeline(DiffusionPipeline):
+class StableDiffusionWalkPipeline(StableDiffusionImg2ImgPipeline):
     r"""
     Pipeline for generating videos by interpolating  Stable Diffusion's latent space.
     This model inherits from [`DiffusionPipeline`]. Check the superclass documentation for the generic methods the
